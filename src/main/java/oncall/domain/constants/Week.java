@@ -44,6 +44,10 @@ public enum Week {
                 .getValue();
     }
 
+    public static boolean isWeekday(int index) {
+        return index == 1 || index == 2 || index == 3 || index == 4 || index == 5;
+    }
+
     public int getIndex() {
         return index;
     }

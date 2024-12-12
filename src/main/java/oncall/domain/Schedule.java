@@ -45,8 +45,7 @@ public class Schedule {
 
     private String handleWorker(int month, int day, int index, String worker) {
         if (worker.equals(lastNickname)) {
-            if (!Holiday.isHoliday(month, day) &&
-                    (index == 1 || index == 2 || index == 3 || index == 4 || index == 5)) {
+            if (!Holiday.isHoliday(month, day) && Week.isWeekday(index)) {
                 worker = weekdayWorkersDeque.pop();
                 weekdayWorkersDeque.addFirst(lastNickname);
                 return worker;
@@ -59,7 +58,7 @@ public class Schedule {
     }
 
     private String getWorker(int month, int day, int index) {
-        if (!Holiday.isHoliday(month, day) && (index == 1 || index == 2 || index == 3 || index == 4 || index == 5)) {
+        if (!Holiday.isHoliday(month, day) && Week.isWeekday(index)) {
             return getWeekdayWorker();
         }
         return getDayOffWorker();

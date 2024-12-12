@@ -1,6 +1,7 @@
 package oncall.domain;
 
 import oncall.domain.constants.Week;
+import oncall.exception.InvalidWorkDateException;
 
 public class WorkDate {
 
@@ -16,7 +17,7 @@ public class WorkDate {
 
     private void validateMonth(int month) {
         if (month < 1 || month > 12) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+            throw new InvalidWorkDateException();
         }
     }
 

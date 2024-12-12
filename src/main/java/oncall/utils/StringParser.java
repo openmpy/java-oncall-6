@@ -4,6 +4,7 @@ import java.util.List;
 import oncall.domain.DayOffWorkers;
 import oncall.domain.WeekdayWorkers;
 import oncall.domain.WorkDate;
+import oncall.exception.InvalidWorkDateException;
 
 public class StringParser {
 
@@ -13,7 +14,7 @@ public class StringParser {
             String week = strings.get(1);
             return new WorkDate(month, week);
         } catch (RuntimeException e) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+            throw new InvalidWorkDateException();
         }
     }
 

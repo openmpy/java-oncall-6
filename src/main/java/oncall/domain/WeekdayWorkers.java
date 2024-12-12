@@ -1,6 +1,7 @@
 package oncall.domain;
 
 import java.util.List;
+import oncall.exception.InvalidWorkerException;
 
 public class WeekdayWorkers {
 
@@ -15,7 +16,7 @@ public class WeekdayWorkers {
     private void validateDuplicated(List<String> nicknames) {
         long distinctCount = nicknames.stream().distinct().count();
         if (nicknames.size() != distinctCount) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
+            throw new InvalidWorkerException();
         }
     }
 

@@ -11,6 +11,7 @@ import oncall.exception.InvalidWorkerException;
 import oncall.utils.StringParser;
 import oncall.utils.StringSplitter;
 import oncall.view.InputView;
+import oncall.view.OutputView;
 
 public class Application {
 
@@ -23,7 +24,7 @@ public class Application {
 
         // 스케쥴 결과 출력
         Schedule schedule = new Schedule(workDate, readWorkers.weekdayWorkers(), readWorkers.dayOffWorkers());
-        schedule.printSchedule();
+        OutputView.printSchedule(schedule);
     }
 
     private static WorkDate readEmergencyWorkDate() {

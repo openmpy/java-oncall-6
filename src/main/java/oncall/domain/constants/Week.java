@@ -1,6 +1,7 @@
 package oncall.domain.constants;
 
 import java.util.Arrays;
+import oncall.exception.InvalidWorkDateException;
 
 public enum Week {
 
@@ -25,14 +26,14 @@ public enum Week {
         return Arrays.stream(values())
                 .filter(it -> it.getValue().equals(value))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요."));
+                .orElseThrow(InvalidWorkDateException::new);
     }
 
     public static int findIndex(Week week) {
         return Arrays.stream(values())
                 .filter(it -> it.getIndex() == week.getIndex())
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요."))
+                .orElseThrow(InvalidWorkDateException::new)
                 .getIndex();
     }
 
@@ -40,7 +41,7 @@ public enum Week {
         return Arrays.stream(values())
                 .filter(it -> it.getIndex() == day)
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요."))
+                .orElseThrow(InvalidWorkDateException::new)
                 .getValue();
     }
 

@@ -1,6 +1,7 @@
 package oncall.utils;
 
 import java.util.List;
+import oncall.domain.DayOffWorkers;
 import oncall.domain.WeekdayWorkers;
 import oncall.domain.WorkDate;
 
@@ -18,5 +19,9 @@ public class StringParser {
 
     public static WeekdayWorkers parseWeekdayWorkers(List<String> nicknames) {
         return new WeekdayWorkers(nicknames);
+    }
+
+    public static DayOffWorkers parseDayOffWorkers(List<String> nicknames) {
+        return new DayOffWorkers(nicknames);
     }
 }
